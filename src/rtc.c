@@ -374,9 +374,9 @@ bool RTC_init(hourFormat_t format, sourceClock_t source, bool reset)
 #endif
   __HAL_RCC_RTC_ENABLE();
 
-  isAlarmASet = RTC_IsAlarmSet(ALARM_A);
+  // isAlarmASet = RTC_IsAlarmSet(ALARM_A);
 #ifdef RTC_ALARM_B
-  isAlarmBSet = RTC_IsAlarmSet(ALARM_B);
+  // isAlarmBSet = RTC_IsAlarmSet(ALARM_B);
 #endif
 #if defined(STM32F1xx)
   uint32_t BackupDate;
@@ -451,13 +451,13 @@ bool RTC_init(hourFormat_t format, sourceClock_t source, bool reset)
 #else
       RTC_getPrediv(&asynch, &sync);
 #endif  // STM32F1xx
-      if (isAlarmASet) {
-        RTC_GetAlarm(ALARM_A, &alarmDay, &alarmHours, &alarmMinutes, &alarmSeconds, &alarmSubseconds, &alarmPeriod, &alarmMask);
-      }
+      // if (isAlarmASet) {
+      //   RTC_GetAlarm(ALARM_A, &alarmDay, &alarmHours, &alarmMinutes, &alarmSeconds, &alarmSubseconds, &alarmPeriod, &alarmMask);
+      // }
 #ifdef RTC_ALARM_B
-      if (isAlarmBSet) {
-        RTC_GetAlarm(ALARM_B, &alarmBDay, &alarmBHours, &alarmBMinutes, &alarmBSeconds, &alarmBSubseconds, &alarmBPeriod, &alarmBMask);
-      }
+      // if (isAlarmBSet) {
+      //   RTC_GetAlarm(ALARM_B, &alarmBDay, &alarmBHours, &alarmBMinutes, &alarmBSeconds, &alarmBSubseconds, &alarmBPeriod, &alarmBMask);
+      // }
 #endif
       // Init RTC clock
       RTC_initClock(source);
@@ -470,13 +470,13 @@ bool RTC_init(hourFormat_t format, sourceClock_t source, bool reset)
 #else
       RTC_setPrediv(asynch, sync);
 #endif  // STM32F1xx
-      if (isAlarmASet) {
-        RTC_StartAlarm(ALARM_A, alarmDay, alarmHours, alarmMinutes, alarmSeconds, alarmSubseconds, alarmPeriod, alarmMask);
-      }
+      // if (isAlarmASet) {
+      //   RTC_StartAlarm(ALARM_A, alarmDay, alarmHours, alarmMinutes, alarmSeconds, alarmSubseconds, alarmPeriod, alarmMask);
+      // }
 #ifdef RTC_ALARM_B
-      if (isAlarmBSet) {
-        RTC_StartAlarm(ALARM_B, alarmBDay, alarmBHours, alarmBMinutes, alarmBSeconds, alarmBSubseconds, alarmBPeriod, alarmBMask);
-      }
+      // if (isAlarmBSet) {
+      //   RTC_StartAlarm(ALARM_B, alarmBDay, alarmBHours, alarmBMinutes, alarmBSeconds, alarmBSubseconds, alarmBPeriod, alarmBMask);
+      // }
 #endif
     } else {
       // RTC is already initialized, and RTC stays on the same clock source
